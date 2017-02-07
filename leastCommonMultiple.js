@@ -1,19 +1,6 @@
-// Find the smallest common multiple of the provided parameters that can be
-// evenly divided by both, as well as by all sequential numbers in the range
-// between these parameters.
-//
-// The range will be an array of two numbers that will not necessarily be in
-// numerical order.
-//
-// e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3 that is
-// evenly divisible by all numbers between 1 and 3.
-
 // lcm(a, b) = ab/gcd(a, b)
-// lcm(a, b, c) = lcm(a, lcm(b, c)) = lcm(a, bc/gcd(b,c))
-// ex. lcm(1,2,3,4,5) = lcm(2, lcm(3, lcm(4,5)))
 
 function smallestCommons(arr) {
-  var x, y;
 
   function lcm(a,b) {
     for (var i=a; i<=b; i++){
@@ -22,10 +9,26 @@ function smallestCommons(arr) {
     return (a*b)/gcd(a,b);
   }
 
-  function gcd(a,b) { // Euclidean algorithm
-
+  function gcd(a,b) { // Euclidean algorithm recursive function
+    if (b === 0) {
+      //console.log(a);
+      return a;
+    }
+    return gcd(b, a%b);
   }
 
+  function gcd2(a,b) { // Euclidean algorithm iterative function
+    var temp;
+    while (b != 0) {
+      temp = b;
+      b = a%b;
+      a = temp;
+    }
+    //console.log(a);
+    return a;
+  }
+
+  gcd2(10, 15);
   return arr;
 }
 
