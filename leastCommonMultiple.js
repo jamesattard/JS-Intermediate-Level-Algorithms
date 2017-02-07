@@ -5,14 +5,7 @@ function smallestCommons(arr) {
   var lcmResult;
   var fullArr = [];
 
-  function gcd(a,b) { // Euclidean algorithm recursive function
-    if (b === 0) {
-      return a;
-    }
-    return gcd(b, a%b);
-  }
-
-  function gcd2(a,b) { // Euclidean algorithm iterative function
+  function gcd(a,b) { // Euclidean algorithm iterative function
     var temp;
     while (b !== 0) {
       temp = b;
@@ -22,8 +15,15 @@ function smallestCommons(arr) {
     return a;
   }
 
+  function gcd2(a,b) { // Euclidean algorithm recursive function
+    if (b === 0) {
+      return a;
+    }
+    return gcd(b, a%b);
+  }
+
   for (var j=arr.sort()[0]; j<=arr.sort()[arr.length-1]; j++) {
-    fullArr.push(i);
+    fullArr.push(j);
   }
   fullArr = fullArr.reverse();
 
