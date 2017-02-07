@@ -37,6 +37,20 @@ function smallestCommons(arr) {
     lcmResult = (a*b)/gcd(a,b);
   }
 
+  // Replace lcm algo with:
+  // var lcm = range[0];
+  //  for (i = 1; i < range.length; i++) {
+  //  var GCD = gcd(lcm, range[i]);
+  //  lcm = (lcm * range[i]) / GCD;
+  //  }
+  //  return lcm;
+
+  // or even better... with a reduce function
+  // return range.reduce(function(previousValue, currentValue) {
+  //   var gcdPrevCurr = gcd(previousValue, currentValue);
+  //   return (previousValue * currentValue) / gcdPrevCurr;
+  //   });
+
   console.log(lcmResult);
   return lcmResult;
 }
@@ -51,4 +65,7 @@ smallestCommons([1, 13])
 // should return 360360.
 
 smallestCommons([23, 18])
+// should return 6056820.
+
+smallestCommons([11, 28])
 // should return 6056820.
