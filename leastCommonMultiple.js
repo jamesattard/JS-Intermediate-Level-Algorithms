@@ -14,7 +14,7 @@ function smallestCommons(arr) {
 
   function gcd2(a,b) { // Euclidean algorithm iterative function
     var temp;
-    while (b != 0) {
+    while (b !== 0) {
       temp = b;
       b = a%b;
       a = temp;
@@ -22,7 +22,7 @@ function smallestCommons(arr) {
     return a;
   }
 
-  for (var i=arr.sort()[0]; i<=arr.sort()[arr.length-1]; i++) {
+  for (var j=arr.sort()[0]; j<=arr.sort()[arr.length-1]; j++) {
     fullArr.push(i);
   }
   fullArr = fullArr.reverse();
